@@ -1,4 +1,3 @@
-const bodyParser = require("body-parser");
 const express = require("express");
 const exphbs = require("express-handlebars");
 const generatePassword = require("./generate_password");
@@ -9,7 +8,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.render("index");

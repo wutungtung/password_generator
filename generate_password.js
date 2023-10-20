@@ -3,7 +3,7 @@ function sample(array) {
   return array[randomIndex];
 }
 
-function generatePassword(options) {
+function generatePassword(textOptions) {
   //define things user might want
   const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
   const upperCaseLetters = lowerCaseLetters.toUpperCase();
@@ -13,27 +13,27 @@ function generatePassword(options) {
   //create a collection to store things store user pick up
   let collection = [];
 
-  if (options.lowercase === "on") {
+  if (textOptions.lowercase === "on") {
     collection = collection.concat(lowerCaseLetters.split(""));
   }
 
-  if (options.uppercase === "on") {
+  if (textOptions.uppercase === "on") {
     collection = collection.concat(upperCaseLetters.split(""));
   }
 
-  if (options.numbers === "on") {
+  if (textOptions.numbers === "on") {
     collection = collection.concat(numbers.split(""));
   }
 
-  if (options.symbols === "on") {
+  if (textOptions.symbols === "on") {
     collection = collection.concat(symbols.split(""));
   }
 
   //remove things user do not need
-  if (options.excludeCharacters) {
-    console.log(`exclude Characters: ${options.excludeCharacters}`);
+  if (textOptions.excludeCharacters) {
+    console.log(`exclude Characters: ${textOptions.excludeCharacters}`);
     collection = collection.filter((word) => {
-      if (options.excludeCharacters.includes(word) === true) {
+      if (textOptions.excludeCharacters.includes(word) === true) {
         return false;
       } else {
         return true;
@@ -43,7 +43,7 @@ function generatePassword(options) {
   //start generating password
 
   let password = "";
-  for (i = 1; i <= Number(options.length); i++) {
+  for (i = 1; i <= Number(textOptions.length); i++) {
     password += sample(collection);
   }
 
