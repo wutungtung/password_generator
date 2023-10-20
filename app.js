@@ -9,7 +9,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // app.use(express.static("public"));
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -19,7 +18,6 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   console.log("req.body", req.body);
   console.log(generatePassword());
-
   res.render("index");
 });
 
