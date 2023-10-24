@@ -21,6 +21,7 @@
                   id="length"
                   min="4"
                   max="16"
+                  value="{{options.length}}"
                 />
                 <small class="text-muted form-text">Length is available between
                   4 ~ 16</small>
@@ -37,6 +38,7 @@
                     class="form-check-input"
                     id="lowercase"
                     name="lowercase"
+                    {{#if options.lowercase}} checked {{/if}}
                   />
                   <label class="form-check-label" for="lowercase">(e.g. abcdefg)</label>
                 </div>
@@ -53,6 +55,7 @@
                     class="form-check-input"
                     id="uppercase"
                     name="uppercase"
+                    {{#if options.uppercase}} checked{{/if}}
                   />
                   <label class="form-check-label" for="uppercase">(e.g. ABCDEFG)</label>
                 </div>
@@ -69,6 +72,7 @@
                     class="form-check-input"
                     id="numbers"
                     name="numbers"
+                    {{#if options.numbers}} checked{{/if}}
                   />
                   <label class="form-check-label" for="numbers">(e.g. 123456)</label>
                 </div>
@@ -85,6 +89,7 @@
                     class="form-check-input"
                     id="symbols"
                     name="symbols"
+                    {{#if options.symbols}} checked{{/if}}
                   />
                   <label
                     class="form-check-label"
@@ -104,12 +109,18 @@
                   name="excludeCharacters"
                   class="form-control"
                   id="exclude-characters"
+                  value="{{options.excludeCharacters}}"
                 />
                 <small class="text-muted form-text">These characters will not
                   appear in the password</small>
               </div>
             </div>
-
+            {{#if password}}
+              <div class="alert alert-info" role="alert">
+                <span class="me-2">Your password is:</span>
+                <code>{{password}}</code>
+              </div>
+            {{/if}}
             <button class="btn btn-success" type="submit">Generate Password</button>
           </form>
         </div>

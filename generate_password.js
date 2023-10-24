@@ -40,8 +40,12 @@ function generatePassword(textOptions) {
       }
     });
   }
-  //start generating password
 
+  if (collection.length === 0) {
+    return "There is no valid character in your selection.";
+  }
+
+  //start generating password
   let password = "";
   for (i = 1; i <= Number(textOptions.length); i++) {
     password += sample(collection);
